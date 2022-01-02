@@ -1,0 +1,16 @@
+#https://leetcode.com/problems/group-anagrams/
+vector<vector<string>> groupAnagrams(vector<string>& strs) {
+        unordered_map<string,vector<string>>vals;
+        for(string m:strs){
+            string t=m;
+            sort(t.begin(),t.end());
+            vals[t].push_back(m);
+        }
+        
+        vector<vector<string>>ans;
+        for(auto p:vals){
+            ans.push_back(p.second);
+        }
+        
+        return ans;
+    }
