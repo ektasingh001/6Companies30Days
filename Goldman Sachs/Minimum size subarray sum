@@ -1,0 +1,18 @@
+#https://leetcode.com/problems/minimum-size-subarray-sum/
+ int minSubArrayLen(int target, vector<int>& nums) {
+        long long int pro=0;
+        int ans=INT_MAX;
+        int start=0;
+        for(int i=0;i<nums.size();i++){
+            pro=pro+(long long int)(nums[i]);
+            while(pro>=(long long int)target){
+                ans=min(ans,i-start+1);
+                pro=pro-(long long int)(nums[start]);
+                start++;
+            }
+        }
+        if(ans==INT_MAX){
+            return 0;
+        }
+        return ans;
+    }
